@@ -1,3 +1,9 @@
+// you need to import the rect from the node modules to use it here
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+
 // creating element in react(core React)- react.createElement("tag", {attributes}, "innerHTML")
 var ReactHeading = React.createElement(
     "h1",
