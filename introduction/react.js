@@ -5,18 +5,22 @@ import ReactDOM from "react-dom/client";
 
 
 // creating element in react(core React)- react.createElement("tag", {attributes}, "innerHTML")
-var ReactHeading = React.createElement(
-    "h1",
-    { id: "heading" },
-    "Hello World from React")
+// var ReactHeading = React.createElement(
+//     "h1",
+//     { id: "heading" },
+//     "Hello World from React")
 
-console.log(ReactHeading);
+// console.log(ReactHeading);
 // it will return obj
+
+// jsx - create element using jsx
+var jsxHeading = <h1 id="heading2">Namaste React using JSX</h1>
+console.log(jsxHeading)
 
 // creating root to append the element (React Dom)
 
 var root1 = ReactDOM.createRoot(document.getElementById("container"));
-root1.render(ReactHeading);
+root1.render(jsxHeading);
 
 
 
@@ -28,12 +32,12 @@ root1.render(ReactHeading);
     </div>
 </div>
 */
-const parent = React.createElement("div", { id: "parent" }, 
-    React.createElement("div", { id: "child" }, 
-        React.createElement("h1", {}, "Heading1")));
+// const parent = React.createElement("div", { id: "parent" }, 
+//     React.createElement("div", { id: "child" }, 
+//         React.createElement("h1", {}, "Heading1")));
 
-var root2 = ReactDOM.createRoot(document.getElementById("container"));
-root2.render(parent);
+// var root2 = ReactDOM.createRoot(document.getElementById("container"));
+// root2.render(parent);
 
 // when you createlement it doesn't create and HTML element. 
 // It creates a object and when you render into the root it converts the obj into html and display the outcome
@@ -48,12 +52,12 @@ root2.render(parent);
 </div>
 */
 // just create an array and add the sibling elements
-const parent2 = React.createElement("div", { id: "parent" }, 
-    React.createElement("div", { id: "child" }, 
-        [React.createElement("h1", {}, "Heading1"), React.createElement("h1", {}, "Heading1")]));
+// const parent2 = React.createElement("div", { id: "parent" }, 
+//     React.createElement("div", { id: "child" }, 
+//         [React.createElement("h1", {}, "Heading1"), React.createElement("h1", {}, "Heading1")]));
 
-var root2 = ReactDOM.createRoot(document.getElementById("container"));
-root2.render(parent2);
+// var root2 = ReactDOM.createRoot(document.getElementById("container"));
+// root2.render(parent2);
 
 // jsx will make the code easier
 
