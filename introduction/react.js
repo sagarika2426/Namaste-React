@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 
-// creating element in react(core React)- react.createElement("tag", {attributes}, "innerHTML")
+//---> creating element in react(core React)- react.createElement("tag", {attributes}, "innerHTML")
 // var ReactHeading = React.createElement(
 //     "h1",
 //     { id: "heading" },
@@ -13,8 +13,15 @@ import ReactDOM from "react-dom/client";
 // console.log(ReactHeading);
 // it will return obj
 
-// jsx - create element using jsx
+// --->jsx - create element using jsx
 var jsxHeading = <h1 id="heading2">Namaste React using JSX</h1>
+// this is not pure js as js engine wont be able understand this
+// parcel is doing the job behind the scene
+// before this code goes to js engine it get transpiled so that js engine can read the code
+// transpile - this code will transform into the code which js engine can understand
+// parcel alone isnt doing it - it has babel who does this work
+
+
 console.log(jsxHeading)
 
 // creating root to append the element (React Dom)
