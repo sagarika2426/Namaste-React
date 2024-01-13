@@ -4,70 +4,66 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 
-//---> creating element in react(core React)- react.createElement("tag", {attributes}, "innerHTML")
-// var ReactHeading = React.createElement(
-//     "h1",
-//     { id: "heading" },
-//     "Hello World from React")
+// React Element
+var jsxHeading2 = (<h1 id="heading2">
+    Namaste React using JSX
+    </h1>);
 
-// console.log(ReactHeading);
-// it will return obj
+// React Components - everything in react is components
+// class based - old
+// functional - new - normal js function
 
-// --->jsx - create element using jsx
-var jsxHeading = <h1 id="heading2">Namaste React using JSX</h1>
-// this is not pure js as js engine wont be able understand this
-// parcel is doing the job behind the scene
-// before this code goes to js engine it get transpiled so that js engine can read the code
-// transpile - this code will transform into the code which js engine can understand
-// parcel alone isnt doing it - it has babel who does this work
+// functional component - a js function which return an react element
+
+const HeadingComponent = () => {
+    return <h1 className="heading"> Namaste React</h1>
+};
+
+// Another syntax
+const HeadingComponent2 = () => (
+<h1 className="heading">Namaste React functional component</h1>
+);
+
+// how to render another functional component inside functional component
+
+const HeadingComponent3 = () => (
+    <div id="mainhead">
+        <HeadingComponent2/>
+        <h1>Namaste React</h1>
+    </div>
+)
 
 
-console.log(jsxHeading)
+// const fn = () => {
+//    return true;
+// }
 
-// creating root to append the element (React Dom)
+// const fn = () => true;
+//  these 2 are same
+
 
 var root1 = ReactDOM.createRoot(document.getElementById("container"));
-root1.render(jsxHeading);
+// root.render(jsxHeading2);
+root1.render(<HeadingComponent3/>);
+// this is how you have to rennder functional component
 
 
 
-//   creating nested html structure
-/*
-*<div id="parent">
-    <div id = "child">
-        <h1>Heading1</h1>
+// writing js inside functional component by using {}
+
+const HeadingComponent4 = () => (
+    <div id="mainhead">
+        <HeadingComponent2/>
+        <h1>Namaste React</h1>
+        <h3>{100+400}</h3>
+        {jsxHeading2} 
+        {/* putting react element in component */}
+        {/* you can write react element inside react elment using same syntax */}
     </div>
-</div>
-*/
-// const parent = React.createElement("div", { id: "parent" }, 
-//     React.createElement("div", { id: "child" }, 
-//         React.createElement("h1", {}, "Heading1")));
+);
 
-// var root2 = ReactDOM.createRoot(document.getElementById("container"));
-// root2.render(parent);
-
-// when you createlement it doesn't create and HTML element. 
-// It creates a object and when you render into the root it converts the obj into html and display the outcome
-
-//  if you want to create sibling elements :
-/*
-*<div id="parent">
-    <div id = "child">
-        <h1>Heading1</h1>
-        <h1>Heading1</h1>
-    </div>
-</div>
-*/
-// just create an array and add the sibling elements
-// const parent2 = React.createElement("div", { id: "parent" }, 
-//     React.createElement("div", { id: "child" }, 
-//         [React.createElement("h1", {}, "Heading1"), React.createElement("h1", {}, "Heading1")]));
-
-// var root2 = ReactDOM.createRoot(document.getElementById("container"));
-// root2.render(parent2);
-
-// jsx will make the code easier
-
-// React is library not framework!
+var root2 = ReactDOM.createRoot(document.getElementById("container"));
+root2.render(<HeadingComponent4/>);
 
 
+// 
