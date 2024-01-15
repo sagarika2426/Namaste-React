@@ -1,0 +1,37 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.logo{
+    width: 100px;
+}
+.navItem >ul{
+    display: flex;
+    list-style: none;
+    /* remove those dots infront of lists */
+
+    font-size: 24px;
+}
+.navItem>ul>li {
+    padding: 10px;
+    margin: 10px;
+
+}
+
+.body{
+    border: 1px solid black;
+}
+
+.search{
+    padding: 10px;
+}
+
+.restro-card{
+    border: 1px solid blue;
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+
+}
