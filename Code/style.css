@@ -24,14 +24,37 @@
     border: 1px solid black;
 }
 
-.search{
+.filter{
     padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.res-card{
+    border: 1px solid blue;
+    width: 250px;
+    height: 400px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 30px;
+
+
+}
+
+.res-card:hover{
+    border: 2px solid blue;
+    cursor: pointer;
+}
+.res-img{
+    width: 100%;
+    height: 200px; /* Set the desired height */
+    object-fit: cover; /* Crop the image while maintaining aspect ratio */
+    object-position: center center;
+    
 }
 
 .restro-card{
-    border: 1px solid blue;
-    width: 200px;
-    height: 300px;
-    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
 
 }
