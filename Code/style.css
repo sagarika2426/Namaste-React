@@ -1,11 +1,18 @@
 .header{
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: #A94438;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .logo{
-    width: 100px;
+    width: 90px;
+    border-radius: 60px;
+    padding: auto;
+    margin-top: 10px;
 }
 .navItem >ul{
     display: flex;
@@ -17,11 +24,14 @@
 .navItem>ul>li {
     padding: 10px;
     margin: 10px;
+    color: white;
 
 }
 
-.body{
-    border: 1px solid black;
+body{
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid black; */
 }
 
 .filter{
@@ -31,19 +41,22 @@
 }
 
 .res-card{
-    border: 1px solid blue;
-    width: 250px;
-    height: 400px;
+    width: 210px;
+    height: 410px;
     padding: 10px;
     margin: auto;
     margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #e4debe5c;
+    border-radius: 16px;
 
 
 }
 
 .res-card:hover{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .res-img{
     width: 100%;
@@ -54,7 +67,32 @@
 }
 
 .restro-card{
+    display: grid;
+    grid-template-columns:repeat(5, 1fr) ;
+
+}
+.filter-btn{
+    padding: 10px 20px;
+    border-radius: 16px;
+    background-color: #e6bba36d ;
+    border: 0.5px solid black;
+    cursor: pointer;
+
+}
+.filter-btn:hover{
+    background-color:  #e4a787;
+}
+
+.shimmer-cards{
+    width: 210px;
+    height: 400px;
+    background-color: #f0f0f0;
+    margin: auto;
+}
+
+.shimmer-container{
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-
+    width: 100%;
 }

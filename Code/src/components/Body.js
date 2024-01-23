@@ -4,18 +4,41 @@ import RestroCard from "./RestaurantCard";
 import resList from "../utils/Data";
 
 // import useState from react;
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
+import Shimmer from "./Shimmer";
 
 // Body Component
 const Body = () =>{
 
     // create state variable
-    const [listOfRes, setListOfRes] = useState(resList);
+    const [listOfRes, setListOfRes] = useState([]);
 
     // decalring normal variable and modifying 
     // let list = [];
     // list.push("abc") 
+
+    useEffect(()=> {
+        fetchData()
+    }, []);
+
+    const fetchData = async() => {
+        const data = await fetch(
+            "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0759837&lng=72.8776559&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
+
+        const jsonFile = await data.json();
+        console.log(jsonFile);
+        // Optional chaining 
+        setListOfRes(jsonFile?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+
+    }
+    // consitional rendering - when you render with a condition
+    // when the page is emptry fter loading, insted of just keeping it blanck we can add fake cards
+    if (listOfRes.length === 0){
+        return <Shimmer/>
+    }
 
 
     return(
@@ -33,7 +56,7 @@ const Body = () =>{
                     setListOfRes(filteredList);
                     }}
                     >
-                        Filter
+                        Show Top Restaurants
 
                     </button>
             </div>
