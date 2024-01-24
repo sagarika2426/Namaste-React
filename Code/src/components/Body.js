@@ -14,9 +14,13 @@ const Body = () =>{
     // create state variable
     const [listOfRes, setListOfRes] = useState([]);
 
+    // create a state variable only for the filtered res
+    const[filteredRes, setFilteredRes] = useState([]);
+
     // decalring normal variable and modifying 
     // let list = [];
     // list.push("abc") 
+    const [searchText, setSearchText] = useState("");
 
     useEffect(()=> {
         fetchData()
@@ -31,19 +35,39 @@ const Body = () =>{
         console.log(jsonFile);
         // Optional chaining 
         setListOfRes(jsonFile?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRes(jsonFile?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
 
 
     }
     // consitional rendering - when you render with a condition
     // when the page is emptry fter loading, insted of just keeping it blanck we can add fake cards
-    if (listOfRes.length === 0){
-        return <Shimmer/>
-    }
+    // if (listOfRes.length === 0){
+    //     return <Shimmer/>
+    // }
+
+    // You can use ternary operator to write the above code as below line
 
 
-    return(
+    return listOfRes.length === 0 ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
+                <div className="search">
+                    <input type="text" className="search-box" 
+                    value={searchText}
+                    onChange={(e) => {
+                        setSearchText(e.target.value)
+                    }}></input>
+                    <button className="search-btn"
+                    onClick={() =>{
+                        const FilteredData = listOfRes.filter((res) =>
+                        res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                        // make it not case sensitive
+                        );
+                        // setListOfRes(FilteredData);
+                        setFilteredRes(FilteredData);
+                    }}>Search</button>
+                </div>
                 <button className = "filter-btn" onClick={()=>{
                     // (console.log("clicked"))
             
@@ -53,12 +77,12 @@ const Body = () =>{
                     // console.log(filteredList)
                     
                     // update the variable with filteredList
-                    setListOfRes(filteredList);
+                    setFilteredRes(filteredList);
                     }}
                     >
-                        Show Top Restaurants
+                        Top Rated Restaurants
 
-                    </button>
+                    </button> 
             </div>
             {/*  this is the callbck fn which will be clled when we clcik the button*/}
 
@@ -68,7 +92,7 @@ const Body = () =>{
                <RestroCard resData={resList[2]}/> */}
 
                {/* instead of repeating it like this we can use loop - map */}
-               {listOfRes.map((restaurant)=>(
+               {filteredRes.map((restaurant)=>(
                 <RestroCard key={restaurant.info.id}
                  resData={restaurant}/>
                ))}

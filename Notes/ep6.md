@@ -25,7 +25,8 @@ Shows the fake card when the page loads. It is a vetter ux instead of showing ju
 conditional rednder:
 render something with a condition 
 
-
+Ternary Operator:
+condition ? exprIfTrue : exprIfFalse
 
 
 

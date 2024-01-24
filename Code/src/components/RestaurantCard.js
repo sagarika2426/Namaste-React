@@ -13,7 +13,16 @@ const RestroCard = (props) =>{
         <p>{resData.info.cuisines.join(", ")}</p>
         {/* with the help of join you can add space and comma in the cuisines */}
 
-        <p>Rating: {resData.info.avgRating}</p>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+    <img
+        className="star-icon"
+        src="https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png"
+        height={"24px"}
+        width={"24px"}
+        style={{ verticalAlign: 'middle' }} // Use verticalAlign to adjust the alignment
+    />
+    {resData.info.avgRating}
+</div>
         <p>Cost for two: {resData.info.costForTwo}</p>
 
         </div>

@@ -3,7 +3,7 @@
     justify-content: space-between;
     /* border: 1px solid black; */
     padding-left: 20px;
-    padding-right: 10px;
+    padding-right: 20px;
     background-color: #A94438;
     box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
@@ -72,11 +72,12 @@ body{
 
 }
 .filter-btn{
-    padding: 10px 20px;
+    padding: 10px 30px;
     border-radius: 16px;
     background-color: #e6bba36d ;
     border: 0.5px solid black;
     cursor: pointer;
+
 
 }
 .filter-btn:hover{
@@ -84,15 +85,65 @@ body{
 }
 
 .shimmer-cards{
-    width: 210px;
+    width: 220px;
     height: 400px;
-    background-color: #f0f0f0;
-    margin: auto;
+    background-color: #e4debe5c;
+   
+    margin: 15px;
 }
 
 .shimmer-container{
     margin-top: 10px;
-    display: flex;
-    flex-wrap: wrap;
     width: 100%;
+    display: grid;
+    grid-template-columns:repeat(5, 1fr)
+}
+
+.login{
+    
+        height: 37px;
+        margin: 0px;
+        margin-top: 16px;
+        margin-left: 10px;
+        border-radius: 16px;
+        font-size: small;
+        font-weight: bold;
+        border: 0px solid black;
+        padding: 5px 10px;
+        background-color: #ffd5d0;
+        font-size: 14px;
+
+    
+}
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+}
+.search{
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
+
+.search-box{
+    height: 20px;
+    width: 300px;
+}
+
+.search-btn{
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    background-color: #A94438;
+    color: white;
+    border: 1px solid black;
+
+}
+.search-btn:hover{
+    background-color: #942f24;
+}
+.star-icon{
+    margin-right: 10px;
+    margin-top: -4px;
 }
