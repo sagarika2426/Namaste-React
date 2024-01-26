@@ -47,8 +47,6 @@ const Body = () =>{
     // }
 
     // You can use ternary operator to write the above code as below line
-
-
     return listOfRes.length === 0 ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
@@ -99,11 +97,6 @@ const Body = () =>{
                {/* inside restro-card, I have looped over my resList and for each restro I am returning some piece of jsx */}
                {/* whenever you use map, always give key over here. key will have an unique identification of each product */}
                {/* react says that never take index as the key, use id */}
-
-
-
-
-
             {/* Restaurnt card - we will be reusing it a lot so we will make a different component */}
             </div>
 
