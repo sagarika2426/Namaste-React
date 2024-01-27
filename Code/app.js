@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
+import { createBrowserRouter , RouterProvider} from "react-router-dom";
+
 
 
 
@@ -28,6 +30,18 @@ Foother
 
 // Main Layout
 const AppLayout = () =>{
+    // create routing config
+    const appRouter = createBrowserRouter([
+        {
+            path:"/";
+            element: <AppLayout/>;
+            // errorElement: 
+        },
+        {
+            path:"/About";
+            element:<About/>
+        }
+    ]);
     return (
         <div id="app">
             {/* Add header component */}
