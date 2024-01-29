@@ -2,7 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
-import { createBrowserRouter , RouterProvider} from "react-router-dom";
+import RestaurantMenu from "./src/components/RestaurantMenu";
+import About from "./src/components/About";
+import Error from "./src/components/Error";
+
+import { createBrowserRouter , RouterProvider, Outlet} from "react-router-dom";
+
 
 
 
@@ -31,28 +36,48 @@ Foother
 // Main Layout
 const AppLayout = () =>{
     // create routing config
-    const appRouter = createBrowserRouter([
-        {
-            path:"/";
-            element: <AppLayout/>;
-            // errorElement: 
-        },
-        {
-            path:"/About";
-            element:<About/>
-        }
-    ]);
+    
+
     return (
         <div id="app">
             {/* Add header component */}
             <Header/>
-            <Body/>
+            <Outlet/>
              
         </div>
     )
 }
 
+const appRouter = createBrowserRouter([
+
+    // create a main branch and put children route, so that whenever we laod any page, the header will remain intact
+    {
+        path:"/",
+        element:<AppLayout/>,
+        children: [
+            {
+                path:"/",
+                element:<Body/>,
+            },
+            {
+                path:"/about",
+                element:<About/>
+            },
+            {
+                // this is dynmic route. : means the resID cn be dynamic
+                path:"/restaurants/:ResId",
+                element: <RestaurantMenu/>
+            }
+        ],
+        errorElement: <Error/>
+    }
+    // Here we created childeren routes inside appLayout
+    
+]);
+
 
 var root2 = ReactDOM.createRoot(document.getElementById("container"));
-root2.render(<AppLayout/>);
+
+// Render the RouterProvider in root
+root2.render(<RouterProvider router={appRouter}/>);
 
