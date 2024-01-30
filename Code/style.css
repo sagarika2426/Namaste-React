@@ -49,8 +49,14 @@ body{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     background-color: #e4debe5c;
     border-radius: 16px;
+    text-decoration: none;
+    color: black;
+}
 
-
+.res-card > * {
+    text-decoration:none;
+    text-decoration-style: none;
+    text-decoration-thickness: 0;
 }
 
 .res-card:hover{

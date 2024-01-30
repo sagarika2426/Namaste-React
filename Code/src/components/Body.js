@@ -7,6 +7,7 @@ import resList from "../utils/Data";
 import { useEffect, useState } from "react";
 
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 // Body Component
 const Body = () =>{
@@ -91,8 +92,14 @@ const Body = () =>{
 
                {/* instead of repeating it like this we can use loop - map */}
                {filteredRes.map((restaurant)=>(
-                <RestroCard key={restaurant.info.id}
-                 resData={restaurant}/>
+                <Link
+                style={{
+                    textDecoration: "none",
+                }}
+                key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}> <RestroCard 
+                resData={restaurant}/>
+                </Link>
+                
                ))}
                {/* inside restro-card, I have looped over my resList and for each restro I am returning some piece of jsx */}
                {/* whenever you use map, always give key over here. key will have an unique identification of each product */}
