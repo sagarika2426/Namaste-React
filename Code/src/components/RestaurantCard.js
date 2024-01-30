@@ -23,9 +23,8 @@ const RestroCard = (props) =>{
             width={"24px"}
             style={{ verticalAlign: "middle" }} // Use verticalAlign to adjust the alignment
           />
-          {resData.info.avgRating}
+          {resData.info.avgRating} -  {resData.info.costForTwo}
         </div>
-        <p>Cost for two: {resData.info.costForTwo}</p>
       </div>
     );
 }

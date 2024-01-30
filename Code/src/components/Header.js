@@ -21,11 +21,15 @@ const Header= () => {
             <div className="navItem">
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/"  style={{
+                    textDecoration: "none", color: "white"
+                }}>Home</Link>
                     </li>
-                    <li>
-                        <Link to="/about">About Us</Link>
-                    </li>
+                    {/* <li>
+                        <Link to="/about">
+                            About Us</Link>
+                    </li> */}
+                    <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
                     <button className="login" 

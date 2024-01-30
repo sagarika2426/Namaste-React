@@ -25,6 +25,8 @@
     padding: 10px;
     margin: 10px;
     color: white;
+    text-decoration: none;
+
 
 }
 
@@ -42,7 +44,7 @@ body{
 
 .res-card{
     width: 210px;
-    height: 410px;
+    height: 380px;
     padding: 10px;
     margin: auto;
     margin-bottom: 30px;
@@ -153,3 +155,112 @@ body{
     margin-right: 10px;
     margin-top: -4px;
 }
+
+/* Menu Page */
+
+.menu{ 
+    /* border: 1px solid black; */
+    margin: auto;
+    width: 70%;
+    /* text-align: center; */
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+} 
+.menu  h1{
+    text-align: center;
+    color: red;
+} 
+h1+p{
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+ .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.menu li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    border-bottom: 0.5px solid rgb(142, 142, 142);
+    padding: 10px;
+    border-bottom:  double #8ac6dd;
+}
+
+.menu .item-details {
+    display: flex;
+    align-items: center;
+}
+
+.menu .item-name {
+    flex: 1;
+}
+
+.menu .item-price {
+    margin-right: 10px;
+}
+
+.menu .add-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* .menu li  :hover{
+    color: red;
+    font-size: large;
+
+} */
+.menu .add-button:hover {
+    background-color: #218838;
+    color: #fff;
+    font-size: small;
+}
+.item-name p{
+    font-size: small;
+    color:#4a4747c2;
+    width: 90%;
+}
+/* .menu .item-name p :hover{
+    font-size: small;
+    color: rgb(74, 71, 71);
+} */
+
+.menuImg{
+    width: 150px;
+    height: 100px; /* Set the desired height for cropping */
+    object-fit: cover; /* Cover maintains the aspect ratio while covering the container */
+    object-position: center;
+    border-radius: 16px;
+    margin-right: 20px;
+
+}
+
+/* Shimmer UI - Menu */
+.shimmer-menu{
+    background-color:  #9897940e;
+     margin: auto;
+     width: 70%;
+     border-radius: 10px;
+     margin-top: 20px;
+     height: 800px;
+     padding-top: 140px;
+    
+}
+
+.shimmer-menu-div{
+    width: 90%;
+    height: 120px;
+    background-color: #b2b2b22a ;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
