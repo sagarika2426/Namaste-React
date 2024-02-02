@@ -3,7 +3,9 @@ import React from 'react';
 import { useState } from 'react';
 
 class UserClass extends React.Component{
+    
     constructor(props){
+        console.log("Child constructor")
         super(props);
         this.state = {
             count : 0,
@@ -11,15 +13,21 @@ class UserClass extends React.Component{
             count3: 2,
         }
     }
+
+    componentDidMount(){
+        console.log("child ComponentDidMount")
+    }
+
     render(){
         // Using destructuring
         const{count, count2, count3} = this.state;
+        console.log("child render");
+
         return(
             <div>
                 <h1>Name: {this.props.name}</h1>
                 <h2>Count: {count}</h2>
                 <h2>Count2: {count2}</h2>
-
                 {/* Updating the state variable */}
                 <button onClick={() => {
                     this.setState({
@@ -28,13 +36,10 @@ class UserClass extends React.Component{
                     }
                     )
                 }}> Increase Count
-
                 </button>
-
             </div>
         );
-    };
-
+   };
 }
 export default UserClass;
 
