@@ -5,23 +5,24 @@ import { useState } from 'react';
 class UserClass extends React.Component{
     
     constructor(props){
-        console.log("Child constructor")
         super(props);
         this.state = {
             count : 0,
             count2: 1,
             count3: 2,
         }
+        console.log(this.props.name + "Child constructor")
+
     }
 
     componentDidMount(){
-        console.log("child ComponentDidMount")
+        console.log(this.props.name + "child ComponentDidMount")
     }
 
     render(){
         // Using destructuring
         const{count, count2, count3} = this.state;
-        console.log("child render");
+        console.log( this.props.name + "child render");
 
         return(
             <div>
