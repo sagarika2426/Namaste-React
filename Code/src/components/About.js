@@ -19,8 +19,12 @@ class About extends React.Component{
          return(
         <div>
             <h1>About Us Page</h1>
-            <UserFn name= {"Sagarika - fn"}/>
-            <UserClass name= {"Sagarika - classbased"}/>
+            {/* <UserFn name= {"Sagarika - fn"}/> */}
+            <UserClass name= {"First"}/>
+            <UserClass name= {"Second"}/>
+            <UserClass name= {"Third"}/>
+
+
 
         </div>      
            )
