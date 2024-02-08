@@ -1,11 +1,12 @@
-import { useEffect, useState} from "react";
+// import { useEffect, useState} from "react";
 import ShimmerMenu from "./ShimmerMenu";
 
 import {useParams} from "react-router-dom";
 import  {CDN_URL, Menu_API} from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-    const[resInfo, setResInfo] = useState(null)
+    // const[resInfo, setResInfo] = useState(null)
 
     const { ResId } = useParams();
     // console.log(resId)
@@ -16,24 +17,23 @@ const RestaurantMenu = () => {
    
 
 // fetch the dynamic data from the API
-    useEffect(() => {
-        fetchMenu();
+    // useEffect(() => {
+    //     fetchMenu();
+    // },[]);
+    // const fetchMenu = async () => {
+    //     const data = await fetch(
+    //         // "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=37969&catalog_qa=undefined&submitAction=ENTER"
+    //         // "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=" + ResId+ "&catalog_qa=undefined&submitAction=ENTER"
+    //         (Menu_API + ResId) 
+    //     );
+    //     const json = await data.json();
+    //     console.log(json);
+    //     setResInfo(json.data)
 
-    },[]);
+    // };
+    // Instead of fetching the data here, we can create a custom hook and fetch the data there
+    const resInfo = useRestaurantMenu (ResId)
 
-   
-
-    const fetchMenu = async () => {
-        const data = await fetch(
-            // "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=37969&catalog_qa=undefined&submitAction=ENTER"
-            // "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=" + ResId+ "&catalog_qa=undefined&submitAction=ENTER"
-            (Menu_API + ResId) 
-        );
-        const json = await data.json();
-        console.log(json);
-        setResInfo(json.data)
-
-    };
 
     // useEffect(()=>{
     //     console.log({resInfo})

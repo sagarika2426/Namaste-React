@@ -20,9 +20,9 @@ class About extends React.Component{
         <div>
             <h1>About Us Page</h1>
             {/* <UserFn name= {"Sagarika - fn"}/> */}
-            <UserClass name= {"First"}/>
-            <UserClass name= {"Second"}/>
-            <UserClass name= {"Third"}/>
+            <UserClass name= {"Sagarika"}/>
+            {/* <UserClass name= {"Second"}/>
+            <UserClass name= {"Third"}/> */}
 
 
 
