@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // Header component
 const Header= () => {
@@ -12,6 +13,8 @@ const Header= () => {
     // when we call the state variable, the header will rerender and create a new varibale to store the login/logout text. 
     // it checks the whole code and update the difference 
 
+    const onlineStatus = useOnlineStatus();
+
     return (
         <div className="header">
             <div className="Logo_Container">
@@ -20,6 +23,9 @@ const Header= () => {
 
             <div className="navItem">
                 <ul>
+                    <li>
+                        Online Status : {onlineStatus ? "🟢": "🔴"}
+                    </li>
                     <li>
                         <Link to="/"  style={{
                     textDecoration: "none", color: "white"
