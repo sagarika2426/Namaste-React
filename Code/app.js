@@ -1,17 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import About from "./src/components/About";
 import Error from "./src/components/Error";
+// import Grocery from "./src/components/Grocery";
+// instead of importing like this, we will use lazy loading
 
 import { createBrowserRouter , RouterProvider, Outlet} from "react-router-dom";
 
-
-
-
-
+const Grocery = lazy(() => import ("./src/components/Grocery"))
 /*
 Header
     Icon
@@ -62,6 +61,10 @@ const appRouter = createBrowserRouter([
             {
                 path:"/about",
                 element:<About/>
+            },
+            {
+                path:"/grocery",
+                element:<Suspense fallback={<h1>loading....</h1>}><Grocery/></Suspense>
             },
             {
                 // this is dynmic route. : means the resID cn be dynamic
