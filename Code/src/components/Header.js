@@ -35,6 +35,11 @@ const Header= () => {
                         <Link to="/about">
                             About Us</Link>
                     </li> */}
+                     <li>
+                        <Link to="/grocery"  style={{
+                    textDecoration: "none", color: "white"
+                }}>Grocery</Link>
+                    </li>
                     <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
