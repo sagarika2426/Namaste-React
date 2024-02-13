@@ -16,34 +16,34 @@ const Header= () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className="header">
+        <div className="flex border-4 justify-between">
             <div className="Logo_Container">
-                <img  className="logo" src={LOGO_URL}/>
+                <img  className=" w-20" src={LOGO_URL}/>
             </div>
 
-            <div className="navItem">
-                <ul>
-                    <li>
+            <div className="flex items-center">
+                <ul className="flex">
+                    <li className="px-4 text-xl" >
                         Online Status : {onlineStatus ? "🟢": "🔴"}
                     </li>
-                    <li>
+                    <li className="px-4 text-xl">
                         <Link to="/"  style={{
-                    textDecoration: "none", color: "white"
+                    textDecoration: "none", color: "black"
                 }}>Home</Link>
                     </li>
                     {/* <li>
                         <Link to="/about">
                             About Us</Link>
                     </li> */}
-                     <li>
+                     <li className="px-4 text-xl">
                         <Link to="/grocery"  style={{
-                    textDecoration: "none", color: "white"
+                    textDecoration: "none", color: "black"
                 }}>Grocery</Link>
                     </li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                    <button className="login" 
+                    <li className="px-4 text-xl" >About Us</li>
+                    <li className="px-4 text-xl">Contact Us</li>
+                    <li className="px-4 text-xl">Cart</li>
+                    <button className="px-4 text-xl" 
                     onClick={() => {
                         loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login")
                         // setLoginBtn("Logout")

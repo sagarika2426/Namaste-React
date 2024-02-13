@@ -50,14 +50,14 @@ const Body = () =>{
     // You can use ternary operator to write the above code as below line
     return listOfRes.length === 0 ? <Shimmer/> : (
         <div className="body">
-            <div className="filter">
+            <div className="filter flex  justify-between h-20 items-center p-3"> 
                 <div className="search">
-                    <input type="text" className="search-box" 
+                    <input type="text" className= " border border-solid border-black" 
                     value={searchText}
                     onChange={(e) => {
                         setSearchText(e.target.value)
                     }}></input>
-                    <button className="search-btn"
+                    <button className="bg-red-400 m-3 px-4 py-1 border border-solid rounded-lg"
                     onClick={() =>{
                         const FilteredData = listOfRes.filter((res) =>
                         res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -67,7 +67,7 @@ const Body = () =>{
                         setFilteredRes(FilteredData);
                     }}>Search</button>
                 </div>
-                <button className = "filter-btn" onClick={()=>{
+                <button className = "filter-btn border border-solid px-4 h-[40px] bg-red-500  rounded-lg " onClick={()=>{
                     // (console.log("clicked"))
             
                     const filteredList = listOfRes.filter(
@@ -85,7 +85,7 @@ const Body = () =>{
             </div>
             {/*  this is the callbck fn which will be clled when we clcik the button*/}
 
-            <div className="restro-card"> 
+            <div className="grid grid-cols-6"> 
                {/* <RestroCard resName="Pizza"/> */}
                {/* <RestroCard resData={resList[1]}/>
                <RestroCard resData={resList[2]}/> */}
