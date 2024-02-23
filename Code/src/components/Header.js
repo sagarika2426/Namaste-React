@@ -16,34 +16,34 @@ const Header= () => {
     const onlineStatus = useOnlineStatus();
 
     return (
-        <div className="flex border-4 justify-between">
-            <div className="Logo_Container">
-                <img  className=" w-20" src={LOGO_URL}/>
+        <div className="flex justify-between bg-red-900 py-4 text-white px-2">
+            <div className="Logo_Container ">
+                <img  className=" w-20 rounded-full ml-4" src={LOGO_URL}/>
             </div>
 
             <div className="flex items-center">
                 <ul className="flex">
-                    <li className="px-4 text-xl" >
+                    <li className="px-4 text-xl " >
                         Online Status : {onlineStatus ? "🟢": "🔴"}
                     </li>
-                    <li className="px-4 text-xl">
+                    <li className="px-4 text-xl hover:font-bold">
                         <Link to="/"  style={{
-                    textDecoration: "none", color: "black"
+                    textDecoration: "none", color: "white"
                 }}>Home</Link>
                     </li>
-                    {/* <li>
+                    <li className="px-4 text-xl hover:font-bold">
                         <Link to="/about">
                             About Us</Link>
-                    </li> */}
-                     <li className="px-4 text-xl">
+                    </li>
+                     <li className="px-4 text-xl hover:font-bold">
                         <Link to="/grocery"  style={{
-                    textDecoration: "none", color: "black"
+                    textDecoration: "none", color: "white"
                 }}>Grocery</Link>
                     </li>
-                    <li className="px-4 text-xl" >About Us</li>
-                    <li className="px-4 text-xl">Contact Us</li>
-                    <li className="px-4 text-xl">Cart</li>
-                    <button className="px-4 text-xl" 
+                    {/* <li className="px-4 text-xl" >About Us</li> */}
+                    {/* <li className="px-4 text-xl hover:font-bold">Contact Us</li> */}
+                    <li className="px-4 text-xl hover:font-bold">Cart</li>
+                    <button className="px-4 text-xl hover:font-bold" 
                     onClick={() => {
                         loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login")
                         // setLoginBtn("Logout")

@@ -4,6 +4,8 @@ import ShimmerMenu from "./ShimmerMenu";
 import {useParams} from "react-router-dom";
 import  {CDN_URL, Menu_API} from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import { useEffect } from "react";
+import RestaurantCatergory from "./RestaurantCatergory";
 
 const RestaurantMenu = () => {
     // const[resInfo, setResInfo] = useState(null)
@@ -41,55 +43,30 @@ const RestaurantMenu = () => {
     if(resInfo === null) return <ShimmerMenu/>
 
    
-    const{name, cuisines, clouseinaryImageId,costForTwoMessage} = (resInfo?.cards?.[0]?.card?.card?.info) || {};
+    const{name, cuisines, costForTwoMessage} = (resInfo?.cards?.[2]?.card?.card?.info) || {};
+  
 
-    
+    const{itemCards} = (resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card) || {};
+    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
-    const{itemCards} = (resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card) || {};
+    const categories = (resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+    console.log(categories)
     return (
-        <div className="menu">
-            {/* <h1>{resInfo?.cards[0]?.card?.card?.info?.name}</h1> */}
-            <h1>{name}</h1>
-            <p>{cuisines?.join(", ")} - {costForTwoMessage}</p>
-            {/* <h2>Menu</h2> */}
-            {/* itrte the menu */}
-            <ul>
-            {itemCards?.map(item => (
-                <li key={item?.card?.info?.id}>
-                <div className="item-details">
-                    
-                <div>
-                                <img className="menuImg" src={CDN_URL + item?.card?.info?.imageId} height={"200px"}/>
-                                </div>
-                            <div className="item-name">{item?.card?.info?.name}
-                            <p>{item.card.info.description}</p>
-                            {/* <div><img src="https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png"/> </div> */}
-                            {/* <p>{item?.card?.info?.ratings?.aggregatedRating?.rating}</p> */}
-
-                            <div style={{ display: "flex", alignItems: "center" }}>
-                            <img
-                                className="star-icon"
-                                src="https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png"
-                                height={"18px"}
-                                width={"18px"}
-                                style={{ verticalAlign: "middle" }} // Use verticalAlign to adjust the alignment
-                            />
-                            {item?.card?.info?.ratings?.aggregatedRating?.rating}
-                            </div>
-                            </div>
-
-
-                            <div className="item-price">{"Rs"} {item?.card?.info?.price/100}</div>
-                            <button className="add-button">Add</button>
-
-                        </div>
-                </li>
-      ))}
-    </ul>
-
-
-        </div>
-    )
+      <div className="menu w-4/5 m-auto mt-8">
+        {/* <h1>{resInfo?.cards[0]?.card?.card?.info?.name}</h1> */}
+        {/* <h1>Hello</h1> */}
+        <h1 className=" text-center text-2xl font-bold">{name}</h1>
+        <p className="text-center my-6 text-lg font-bold ">
+          {cuisines?.join(", ")} - {costForTwoMessage}
+        </p>
+        {/* <h2>Menu</h2> */}
+        {/* itrte the menu */}
+        {categories.map((category) => (
+          <RestaurantCatergory data = {category?.card?.card}/>
+        ))}
+        
+      </div>
+    );
 
 };
 

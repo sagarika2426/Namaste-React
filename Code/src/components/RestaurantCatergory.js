@@ -1,0 +1,33 @@
+import MenuItemLists from "./MenuItemLists";
+import { useState } from "react";
+
+const RestaurantCatergory = ({data}) => {
+    const [showItems, setShowItems] = useState(false)
+    // console.log(data);
+    const handleClick = () => {
+        console.log("clicked")
+        setShowItems(!showItems)
+        // if the showItem is true make it false and viceversa
+
+    }
+    return(
+        <div>
+            {/* Accordion Header */}
+            <div className=" bg-slate-100 m-auto w-3/4 mt-4 py-3 px-2 rounded-md"  >
+                <div className="flex justify-between cursor-pointer " onClick={handleClick}>
+                    <span className="font-bold text-lg">{data?.title} ({data.itemCards.length})</span>
+                    <span>🔻</span>
+                </div>
+                {/* Body */}
+
+                {showItems && <MenuItemLists items = {data.itemCards}/>}
+
+
+               
+            </div>
+
+        </div>
+    )
+}
+
+export default RestaurantCatergory;

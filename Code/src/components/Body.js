@@ -52,12 +52,12 @@ const Body = () =>{
         <div className="body">
             <div className="filter flex  justify-between h-20 items-center p-3"> 
                 <div className="search">
-                    <input type="text" className= " border border-solid border-black" 
+                    <input type="text" className= " border border-solid border-black h-8 w-[300px]" 
                     value={searchText}
                     onChange={(e) => {
                         setSearchText(e.target.value)
                     }}></input>
-                    <button className="bg-red-400 m-3 px-4 py-1 border border-solid rounded-lg"
+                    <button className="bg-red-300 m-3 px-4 py-1 border border-solid rounded-lg hover:bg-red-400"
                     onClick={() =>{
                         const FilteredData = listOfRes.filter((res) =>
                         res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -67,7 +67,7 @@ const Body = () =>{
                         setFilteredRes(FilteredData);
                     }}>Search</button>
                 </div>
-                <button className = "filter-btn border border-solid px-4 h-[40px] bg-red-500  rounded-lg " onClick={()=>{
+                <button className = "filter-btn border border-solid px-10 h-[40px] bg-red-700  rounded-lg hover:bg-red-800 text-white " onClick={()=>{
                     // (console.log("clicked"))
             
                     const filteredList = listOfRes.filter(
@@ -85,7 +85,7 @@ const Body = () =>{
             </div>
             {/*  this is the callbck fn which will be clled when we clcik the button*/}
 
-            <div className="grid grid-cols-6"> 
+            <div className="grid grid-cols-5"> 
                {/* <RestroCard resName="Pizza"/> */}
                {/* <RestroCard resData={resList[1]}/>
                <RestroCard resData={resList[2]}/> */}

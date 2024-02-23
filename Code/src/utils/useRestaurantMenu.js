@@ -8,15 +8,15 @@ const useRestaurantMenu = (ResId) => {
         fetchMenu();
     },[]);
     const fetchMenu = async () => {
-        const data = await fetch(
-            // "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=37969&catalog_qa=undefined&submitAction=ENTER"
-            // "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=" + ResId+ "&catalog_qa=undefined&submitAction=ENTER"
-            (Menu_API + ResId) 
-        );
-        const json = await data.json();
-        console.log(json);
-        setResInfo(json.data)
-
+        try {
+            const data = await fetch(Menu_API + ResId);
+            const json = await data.json();
+            // console.log(json);
+            setResInfo(json.data);
+        } catch (error) {
+            // Handle the error here
+            console.error('Error fetching menu:', error);
+        }
     };
     return resInfo;
 }

@@ -1,0 +1,268 @@
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #A94438;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+
+.logo{
+    width: 90px;
+    border-radius: 60px;
+    padding: auto;
+    margin-top: 10px;
+}
+.navItem >ul{
+    display: flex;
+    list-style: none;
+    /* remove those dots infront of lists */
+
+    font-size: 24px;
+}
+.navItem>ul>li {
+    padding: 10px;
+    margin: 10px;
+    color: white;
+    text-decoration: none;
+
+
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid black; */
+}
+
+.filter{
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.res-card{
+    width: 210px;
+    height: 380px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #e4debe5c;
+    border-radius: 16px;
+    text-decoration: none;
+    color: black;
+}
+
+.res-card > * {
+    text-decoration:none;
+    text-decoration-style: none;
+    text-decoration-thickness: 0;
+}
+
+.res-card:hover{
+    /* border: 2px solid blue; */
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.res-img{
+    width: 100%;
+    height: 200px; /* Set the desired height */
+    object-fit: cover; /* Crop the image while maintaining aspect ratio */
+    object-position: center center;
+    
+}
+
+.restro-card{
+    display: grid;
+    grid-template-columns:repeat(5, 1fr) ;
+
+}
+.filter-btn{
+    padding: 10px 30px;
+    border-radius: 16px;
+    background-color: #e6bba36d ;
+    border: 0.5px solid black;
+    cursor: pointer;
+
+
+}
+.filter-btn:hover{
+    background-color:  #e4a787;
+}
+
+.shimmer-cards{
+    width: 220px;
+    height: 400px;
+    background-color: #e4debe5c;
+   
+    margin: 15px;
+}
+
+.shimmer-container{
+    margin-top: 10px;
+    width: 100%;
+    display: grid;
+    grid-template-columns:repeat(5, 1fr)
+}
+
+.login{
+    
+        height: 37px;
+        margin: 0px;
+        margin-top: 16px;
+        margin-left: 10px;
+        border-radius: 16px;
+        font-size: small;
+        font-weight: bold;
+        border: 0px solid black;
+        padding: 5px 10px;
+        background-color: #ffd5d0;
+        font-size: 14px;
+
+    
+}
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+}
+.search{
+    margin-right: 20px;
+    margin-top: 10px;
+
+}
+
+.search-box{
+    height: 20px;
+    width: 300px;
+}
+
+.search-btn{
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    background-color: #A94438;
+    color: white;
+    border: 1px solid black;
+
+}
+.search-btn:hover{
+    background-color: #942f24;
+}
+.star-icon{
+    margin-right: 10px;
+    margin-top: -4px;
+}
+
+/* Menu Page */
+
+.menu{ 
+    /* border: 1px solid black; */
+    margin: auto;
+    width: 70%;
+    /* text-align: center; */
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+} 
+.menu  h1{
+    text-align: center;
+    color: red;
+} 
+h1+p{
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+ .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.menu li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    border-bottom: 0.5px solid rgb(142, 142, 142);
+    padding: 10px;
+    border-bottom:  double #8ac6dd;
+}
+
+.menu .item-details {
+    display: flex;
+    align-items: center;
+}
+
+.menu .item-name {
+    flex: 1;
+}
+
+.menu .item-price {
+    margin-right: 10px;
+}
+
+.menu .add-button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* .menu li  :hover{
+    color: red;
+    font-size: large;
+
+} */
+.menu .add-button:hover {
+    background-color: #218838;
+    color: #fff;
+    font-size: small;
+}
+.item-name p{
+    font-size: small;
+    color:#4a4747c2;
+    width: 90%;
+}
+/* .menu .item-name p :hover{
+    font-size: small;
+    color: rgb(74, 71, 71);
+} */
+
+.menuImg{
+    width: 150px;
+    height: 100px; /* Set the desired height for cropping */
+    object-fit: cover; /* Cover maintains the aspect ratio while covering the container */
+    object-position: center;
+    border-radius: 16px;
+    margin-right: 20px;
+
+}
+
+/* Shimmer UI - Menu */
+.shimmer-menu{
+    background-color:  #9897940e;
+     margin: auto;
+     width: 70%;
+     border-radius: 10px;
+     margin-top: 20px;
+     height: 800px;
+     padding-top: 140px;
+    
+}
+
+.shimmer-menu-div{
+    width: 90%;
+    height: 120px;
+    background-color: #b2b2b22a ;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
