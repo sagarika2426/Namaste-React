@@ -1,13 +1,20 @@
 import MenuItemLists from "./MenuItemLists";
 import { useState } from "react";
 
-const RestaurantCatergory = ({data}) => {
-    const [showItems, setShowItems] = useState(false)
-    // console.log(data);
+const RestaurantCatergory = ({data, showItems, setShowIndex}) => {
+
+    // Take showItems as props from parent
+    // Give control to showItem to the parent instead of children
+
+
+
+    // const [showItems, setShowItems] = useState(false)
+    // // console.log(data);
     const handleClick = () => {
-        console.log("clicked")
-        setShowItems(!showItems)
-        // if the showItem is true make it false and viceversa
+        // console.log("clicked")
+        // setShowItems(!showItems)
+        setShowIndex();
+        // // if the showItem is true make it false and viceversa
 
     }
     return(
