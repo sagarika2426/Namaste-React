@@ -4,13 +4,19 @@ import ShimmerMenu from "./ShimmerMenu";
 import {useParams} from "react-router-dom";
 import  {CDN_URL, Menu_API} from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import RestaurantCatergory from "./RestaurantCatergory";
 
 const RestaurantMenu = () => {
     // const[resInfo, setResInfo] = useState(null)
 
     const { ResId } = useParams();
+
+    const [showIndex, setShowIndex] = useState(0);
+    // if showindex is 0 set true, if it's 1 set true. Whatever the number of ShowIndex is set that true
+
+
+  
     // console.log(resId)
 
     // const params = useParams();
@@ -34,6 +40,7 @@ const RestaurantMenu = () => {
 
     // };
     // Instead of fetching the data here, we can create a custom hook and fetch the data there
+    
     const resInfo = useRestaurantMenu (ResId)
 
 
@@ -61,8 +68,14 @@ const RestaurantMenu = () => {
         </p>
         {/* <h2>Menu</h2> */}
         {/* itrte the menu */}
-        {categories.map((category) => (
-          <RestaurantCatergory data = {category?.card?.card}/>
+        {categories.map((category, index) => (
+
+          // Controlled Component
+          <RestaurantCatergory 
+          key = {categories?.card?.card?.title}
+          data = {category?.card?.card}
+          showItems = {index === showIndex ? true : false}
+          setShowIndex ={() => setShowIndex(index)}/>
         ))}
         
       </div>
