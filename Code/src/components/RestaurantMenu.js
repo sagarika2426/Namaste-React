@@ -50,16 +50,16 @@ const RestaurantMenu = () => {
     if(resInfo === null) return <ShimmerMenu/>
 
    
-    const{name, cuisines, costForTwoMessage} = (resInfo?.cards?.[2]?.card?.card?.info) || {};
+    const{name, cuisines, costForTwoMessage} = (resInfo?.cards?.[0]?.card?.card?.info) || {};
   
 
-    const{itemCards} = (resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card) || {};
-    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+    const{itemCards} = (resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card) || {};
+    // console.log(resInfo);
 
-    const categories = (resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
-    console.log(categories)
+    const categories = (resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+    // console.log(categories)
     return (
-      <div className="menu w-4/5 m-auto mt-8">
+      <div className="menu w-7/10 m-auto mt-8 px-3">
         {/* <h1>{resInfo?.cards[0]?.card?.card?.info?.name}</h1> */}
         {/* <h1>Hello</h1> */}
         <h1 className=" text-center text-2xl font-bold">{name}</h1>
@@ -68,7 +68,7 @@ const RestaurantMenu = () => {
         </p>
         {/* <h2>Menu</h2> */}
         {/* itrte the menu */}
-        {categories.map((category, index) => (
+        {categories?.map((category, index) => (
 
           // Controlled Component
           <RestaurantCatergory 

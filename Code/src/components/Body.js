@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 // Body Component
 const Body = () =>{
@@ -40,7 +42,8 @@ const Body = () =>{
 
 
 
-    }
+    };
+    const { loggedInUser, setUserInfo} = useContext(UserContext)
     // consitional rendering - when you render with a condition
     // when the page is emptry fter loading, insted of just keeping it blanck we can add fake cards
     // if (listOfRes.length === 0){
@@ -52,7 +55,7 @@ const Body = () =>{
         <div className="body">
             <div className="filter flex  justify-between h-20 items-center p-3"> 
                 <div className="search">
-                    <input type="text" className= " border border-solid border-black h-8 w-[300px]" 
+                    <input type="text" className= " border border-solid border-black h-8 w-[300px] p-2 rounded-md" 
                     value={searchText}
                     onChange={(e) => {
                         setSearchText(e.target.value)
@@ -67,7 +70,7 @@ const Body = () =>{
                         setFilteredRes(FilteredData);
                     }}>Search</button>
                 </div>
-                <button className = "filter-btn border border-solid px-10 h-[40px] bg-red-700  rounded-lg hover:bg-red-800 text-white " onClick={()=>{
+                <button className = " mr-[450px] filter-btn border border-solid px-8 h-[40px] bg-red-700  rounded-lg hover:bg-red-800 text-white " onClick={()=>{
                     // (console.log("clicked"))
             
                     const filteredList = listOfRes.filter(
@@ -79,9 +82,18 @@ const Body = () =>{
                     setFilteredRes(filteredList);
                     }}
                     >
-                        Top Rated Restaurants
+                        Show Top Rated Restaurants ⭐
 
                     </button> 
+
+                    <div>
+                        <label className="font-bold">Ordering For: </label>
+                    <input 
+                    value={loggedInUser}
+                    type="text" className= " rounded-md border border-solid border-black h-8 w-[200px] p-2" onChange={(e) => setUserInfo(e.target.value)}></input>
+        
+                </div>
+                
             </div>
             {/*  this is the callbck fn which will be clled when we clcik the button*/}
 

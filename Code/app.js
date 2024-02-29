@@ -1,10 +1,11 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 import RestaurantMenu from "./src/components/RestaurantMenu";
 import About from "./src/components/About";
 import Error from "./src/components/Error";
+import UserContext from "./src/utils/UserContext";
 // import Grocery from "./src/components/Grocery";
 // instead of importing like this, we will use lazy loading
 
@@ -35,15 +36,31 @@ Foother
 // Main Layout
 const AppLayout = () =>{
     // create routing config
+
+    const[useInfo, setUserInfo] = useState();
+
+    // Autherntication
+    useEffect(() => {
+        const data = {
+            name:"Sagarika",
+
+        };
+        setUserInfo(data.name);
+    }, []);
     
 
     return (
-        <div id="app">
-            {/* Add header component */}
-            <Header/>
-            <Outlet/>
+        // if you wrap only header in the context then only header will have Sgarika, other places it will give default value
+        // if you dont provide anything then it will take the default value
+        <UserContext.Provider value={{loggedInUser:useInfo, setUserInfo}}> 
+            <div id="app">
+                {/* Add header component */}
+                <Header/>
+                <Outlet/>
              
-        </div>
+            </div>
+        </UserContext.Provider>
+     
     )
 }
 

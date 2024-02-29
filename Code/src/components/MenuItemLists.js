@@ -7,7 +7,7 @@ const MenuItemLists = ({items}) => {
             {items.map((item) => (
                   
                   <li key={item?.card?.info?.id}>
-                  <div className="item-details flex m-auto items-center border border-solid mb-4 rounded-lg shadow-lg pr-4 bg-slate-50 hover:bg-slate-200">
+                  <div className="item-details flex m-auto items-center border border-solid mt-4 rounded-lg shadow-lg pr-4 bg-white hover:bg-slate-200">
                     <div className="w-[256px] overflow-hidden max-w-[256px] rounded-lg" >
                       <img
                         className="menuImg w-[250px] h-[163px] object-center object-cover"

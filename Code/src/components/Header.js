@@ -2,6 +2,8 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 // Header component
 const Header= () => {
@@ -14,6 +16,8 @@ const Header= () => {
     // it checks the whole code and update the difference 
 
     const onlineStatus = useOnlineStatus();
+    const {loggedInUser} = useContext(UserContext)
+    // console.log(data)
 
     return (
         <div className="flex justify-between bg-red-900 py-4 text-white px-2">
@@ -51,7 +55,14 @@ const Header= () => {
                     {loginBtn}
                         
                     </button>
-              </ul>
+                    <div className="flex">
+                    <li className="flex items-center px-4 text-xl font-bold">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" className="w-8 h-8 mr-2 rounded-2xl" alt="User Profile Icon"/>
+                        <span>{loggedInUser}</span>
+                    </li>
+                    </div>
+                   
+                </ul>
             </div>
         </div>
     )
