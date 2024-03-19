@@ -10,6 +10,8 @@ import UserContext from "./src/utils/UserContext";
 // instead of importing like this, we will use lazy loading
 
 import { createBrowserRouter , RouterProvider, Outlet} from "react-router-dom";
+import { Provider } from "react-redux";
+import appStore from "./src/utils/appStore";
 
 const Grocery = lazy(() => import ("./src/components/Grocery"))
 /*
@@ -50,8 +52,9 @@ const AppLayout = () =>{
     
 
     return (
-        // if you wrap only header in the context then only header will have Sgarika, other places it will give default value
-        // if you dont provide anything then it will take the default value
+        <Provider store={appStore}>
+        {/* // if you wrap only header in the context then only header will have Sgarika, other places it will give default value
+        // if you dont provide anything then it will take the default value */}
         <UserContext.Provider value={{loggedInUser:useInfo, setUserInfo}}> 
             <div id="app">
                 {/* Add header component */}
@@ -60,7 +63,7 @@ const AppLayout = () =>{
              
             </div>
         </UserContext.Provider>
-     
+    //  </Provider>
     )
 }
 
