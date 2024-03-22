@@ -36,3 +36,8 @@ in case 1, we are subcribing to the specific part of the store and in case 2 we 
 //reducer vs reducers
 when you are writing inside the store you are writeing reducer as it is a big reducer which can contain multiple small reducers 
 but in slice its reducers as there are multiiple small fns  
+
+
+Redux uses immer library behind the scene which compare the old state and the new state and gives you the new state 
+Immer simplifies handling immutable data structures
+- in old redux we cant mutate the state and returning is mandetory but in new redux we ave to mutate the state
