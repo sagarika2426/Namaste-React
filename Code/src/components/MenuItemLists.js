@@ -1,7 +1,30 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem, removeItem } from "../utils/cartSlice";
 
-const MenuItemLists = ({items}) => {
-    console.log(items)
+
+
+const MenuItemLists = ({items, showRemoveButton}) => {
+    // console.log(items)
+
+    // To dispatch an action we need a Dispatch hook
+    const dispatch = useDispatch();
+
+      //when the fn is called dispatch an action
+      //here the action is - addItem
+
+
+    const handleAction = (item) => {
+        if (showRemoveButton) {
+            // Remove button action
+            dispatch(removeItem(item));
+        } else {
+            // Add button action
+            dispatch(addItem(item));
+        }
+
+
+    }
     return (
         <ul className="list-none">
             {items.map((item) => (
@@ -20,7 +43,7 @@ const MenuItemLists = ({items}) => {
                       <h2 className="item-price font-bold w-16 mb-4">
                         {"₹"} {item?.card?.info?.price ? item?.card?.info?.price / 100 : item?.card?.info?.defaultPrice/100}
                       </h2>
-                      <p className="text-[13px] text-gray-500">{item.card.info.description}</p>
+                      <p className="text-[13px] text-gray-500">{item?.card?.info?.description}</p>
                       {/* <div><img src="https://static.vecteezy.com/system/resources/thumbnails/009/342/559/small/mobile-game-golden-star-clipart-design-illustration-free-png.png"/> </div> */}
                       {/* <p>{item?.card?.info?.ratings?.aggregatedRating?.rating}</p> */}
     
@@ -40,9 +63,18 @@ const MenuItemLists = ({items}) => {
                     </div>
     
                     {/* <div className="item-price ml-4 font-bold w-7">{"₹"} {item?.card?.info?.price/100}</div> */}
-                    <button className="add-button bg-lime-700 text-white px-4 py-2 rounded-lg mx-2  hover:bg-lime-900">
+                    
+                    {/* <button className="add-button bg-lime-700 text-white px-4 py-2 rounded-lg mx-2  hover:bg-lime-900"
+                    // onClick={handleAddItems}
+                    // onClick={handleAddItems(Item)}
+                    onClick={() => handleAddItems(item)}>
                       Add
-                    </button>
+                    </button> */}
+
+                    <button className={`${showRemoveButton ? 'remove-button' : 'add-button'} bg-lime-700 text-white px-4 py-2 rounded-lg mx-2 hover:bg-lime-900`}
+                            onClick={() => handleAction(item)}>
+                            {showRemoveButton ? 'Remove' : 'Add'}
+                        </button>
                   </div>
                 </li>
 
