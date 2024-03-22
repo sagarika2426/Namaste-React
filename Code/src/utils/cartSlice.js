@@ -9,6 +9,7 @@ const cartSlice = createSlice({
     },
     reducers: {
         //Actions
+        //we are modifying the states directly - mutating the states
         addItem:(state, action) =>{//reducer fn
             state.items.push(action.payload)
         },
