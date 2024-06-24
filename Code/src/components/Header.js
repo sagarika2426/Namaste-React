@@ -23,7 +23,7 @@ const Header = () => {
                 </div>
 
                 {/* Navigation Links and User Info */}
-                <nav className="flex items-center flex-row lg:items-center lg:ml-auto">
+                <nav className="flex items-center flex-row lg:items-center lg:ml-auto gap-4">
                     {/* Online Status */}
                     <span className="hidden lg:block lg:text-xl mr-4 text-lg">
                         {onlineStatus ? "🟢" : "🔴"} Online
@@ -48,14 +48,14 @@ const Header = () => {
                     </ul>
 
                     {/* User Profile and Login/Logout Button */}
-                    <div className="flex flex-col lg:ml-6 ml-4">
-                        <img
+                    <div className="flex space-x-4 lg:space-x-8 mb-2 lg:mb-0 text-lg lg:text-xl">
+                        {/* <img
                             src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
                             className="w-8 h-8 lg:w-10 lg:h-10 rounded-full mb-2 lg:mb-0 lg:mr-4"
                             alt="User Profile Icon"
-                        />
+                        /> */}
                         <button
-                            className="text-sm lg:text-lg hover:underline focus:outline-none text-center"
+                            className="text-lg lg:text-xl text-center justify-center"
                             onClick={() => setLoginBtn(loginBtn === "Login" ? "Logout" : "Login")}
                         >
                             {loginBtn}
