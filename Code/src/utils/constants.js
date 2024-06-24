@@ -6,4 +6,6 @@ export const CDN_URL =
 //  by added export infront of const
 
 
-export const Menu_API = "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=" ;
+// export const Menu_API = "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.0221791&lng=73.1098806&restaurantId=" ;
+
+export const Menu_API = "https://food-ordering-app-be.onrender.com/restaurants/menu?lat=19.0221791&long=73.1098806&restaurantId="

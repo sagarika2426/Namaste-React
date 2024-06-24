@@ -6,77 +6,66 @@ import { useContext } from "react";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
 
-// Header component
-const Header= () => {
-    // Let's make a state variable for login and update it to logout if we click on it
+const Header = () => {
     const [loginBtn, setLoginBtn] = useState("Login");
-
-    // when we use state variable and call it, it rerender the whole header not just btn
-    // How this const variable is getting changed?
-    // when we call the state variable, the header will rerender and create a new varibale to store the login/logout text. 
-    // it checks the whole code and update the difference 
-
     const onlineStatus = useOnlineStatus();
-    const {loggedInUser} = useContext(UserContext)
-    // console.log(data)
-
-
-    //Subscribing to the store using Selector
+    const { loggedInUser } = useContext(UserContext);
     const cartItems = useSelector((store) => store.cart.items);
-    console.log(cartItems)
 
     return (
-        <div className="flex justify-between bg-red-900 py-4 text-white px-2">
-            <div className="Logo_Container ">
-                <img  className=" w-20 rounded-full ml-4" src={LOGO_URL}/>
-            </div>
+        <header className="bg-red-900 text-white py-3 px-4 lg:px-8">
+            <div className="flex justify-between items-center">
+                {/* Logo and Home Link */}
+                <div className="flex items-center">
+                    <Link to="/">
+                        <img className="w-16 h-16 lg:w-20 lg:h-20 rounded-full" src={LOGO_URL} alt="Logo" />
+                    </Link>
+                </div>
 
-            <div className="flex items-center">
-                <ul className="flex">
-                    <li className="px-4 text-xl " >
-                        Online Status : {onlineStatus ? "🟢": "🔴"}
-                    </li>
-                    <li className="px-4 text-xl hover:font-bold">
-                        <Link to="/"  style={{
-                    textDecoration: "none", color: "white"
-                }}>Home</Link>
-                    </li>
-                    <li className="px-4 text-xl hover:font-bold">
-                        <Link to="/about">
-                            About Us</Link>
-                    </li>
-                     <li className="px-4 text-xl hover:font-bold">
-                        <Link to="/grocery"  style={{
-                    textDecoration: "none", color: "white"
-                }}>Grocery</Link>
-                    </li>
-                    {/* <li className="px-4 text-xl" >About Us</li> */}
-                    {/* <li className="px-4 text-xl hover:font-bold">Contact Us</li> */}
-                    <li className="px-4 text-xl hover:font-bold">
-                        <Link to="/cart">
-                        Cart : ({cartItems.length} Items)</Link>
-                    </li>
-        
-                    <button className="px-4 text-xl hover:font-bold" 
-                    onClick={() => {
-                        loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login")
-                        // setLoginBtn("Logout")
-                    }}> 
-                    {loginBtn}
-                        
-                    </button>
-                    <div className="flex">
-                    <li className="flex items-center px-4 text-xl font-bold">
-                        <img src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" className="w-8 h-8 mr-2 rounded-2xl" alt="User Profile Icon"/>
-                        <span>{loggedInUser}</span>
-                    </li>
+                {/* Navigation Links and User Info */}
+                <nav className="flex items-center flex-row lg:items-center lg:ml-auto">
+                    {/* Online Status */}
+                    <span className="hidden lg:block lg:text-xl mr-4 text-lg">
+                        {onlineStatus ? "🟢" : "🔴"} Online
+                    </span>
+
+                    {/* Navigation Links */}
+                    <ul className="flex space-x-4 lg:space-x-8 mb-2 lg:mb-0 text-lg lg:text-xl">
+                        {/* <li className="text-xl hover:font-bold">
+                            <Link to="/" className="hover:text-gray-300">Home</Link>
+                        </li> */}
+                        <li className="hover:font-bold text-md">
+                            <Link to="/about" className="hover:text-gray-300">About Us</Link>
+                        </li>
+                        {/* <li className="text-xl hover:font-bold">
+                            <Link to="/grocery" className="hover:text-gray-300">Grocery</Link>
+                        </li> */}
+                        <li className="lg:text-xl hover:font-bold">
+                            <Link to="/cart" className="hover:text-gray-300">
+                                Cart: ({cartItems.length})
+                            </Link>
+                        </li>
+                    </ul>
+
+                    {/* User Profile and Login/Logout Button */}
+                    <div className="flex flex-col lg:ml-6 ml-4">
+                        <img
+                            src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg"
+                            className="w-8 h-8 lg:w-10 lg:h-10 rounded-full mb-2 lg:mb-0 lg:mr-4"
+                            alt="User Profile Icon"
+                        />
+                        <button
+                            className="text-sm lg:text-lg hover:underline focus:outline-none text-center"
+                            onClick={() => setLoginBtn(loginBtn === "Login" ? "Logout" : "Login")}
+                        >
+                            {loginBtn}
+                        </button>
+                        {/* <span className="hidden lg:inline-block ml-2 text-xl">{loggedInUser}</span> */}
                     </div>
-                   
-                </ul>
+                </nav>
             </div>
-        </div>
-    )
+        </header>
+    );
 }
 
-// Export Hearder from this file and import in the app.js
 export default Header;

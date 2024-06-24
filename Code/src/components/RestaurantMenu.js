@@ -50,20 +50,20 @@ const RestaurantMenu = () => {
     if(resInfo === null) return <ShimmerMenu/>
 
    
-    const{name, cuisines, costForTwoMessage} = (resInfo?.cards?.[0]?.card?.card?.info) || {};
+    const{name, cuisines, costForTwoMessage} = (resInfo?.cards[4].card?.card?.info) || {};
   
 
-    const{itemCards} = (resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card) || {};
+    const{itemCards} = (resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card) || {};
     // console.log(resInfo);
 
-    const categories = (resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
+    const categories = (resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"))
     // console.log(categories)
     return (
-      <div className="menu w-7/10 m-auto mt-8 px-3">
+      <div className="menu lg:w-7/10 m-auto lg:mt-8 px-3 w-full mt-4">
         {/* <h1>{resInfo?.cards[0]?.card?.card?.info?.name}</h1> */}
         {/* <h1>Hello</h1> */}
-        <h1 className=" text-center text-2xl font-bold">{name}</h1>
-        <p className="text-center my-6 text-lg font-bold ">
+        <h1 className=" text-center lg:text-2xl font-bold">View Menu</h1>
+        <p className="text-center lg:my-6 text-lg font-bold ">
           {cuisines?.join(", ")} - {costForTwoMessage}
         </p>
         {/* <h2>Menu</h2> */}

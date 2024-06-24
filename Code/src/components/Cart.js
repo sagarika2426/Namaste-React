@@ -20,7 +20,7 @@ const Cart = () => {
 
     return(
         <div>
-            <h1 className="text-4xl font-bold text-center mt-4">Cart 🛒</h1>
+            <h1 className="lg:text-4xl  text-xl font-bold text-center mt-4">Cart 🛒</h1>
             <div className="flex justify-between mx-4">
                 <div></div>
                 <button 
@@ -31,9 +31,9 @@ const Cart = () => {
                 </button>
             </div>
 
-            {cartItems.length === 0 && <h1 className="text-center font-semibold text-xl">Cart is Empty! Add Your Favourite Food to the Cart!🍔</h1>}
+            {cartItems.length === 0 && <h1 className="text-center font-semibold lg:text-xl mt-6">Cart is Empty! Add Your Favourite Food to the Cart!🍔</h1>}
 
-            <div className="w-6/12 m-auto">
+            <div className="lg:w-6/12 m-auto p-2">
                 <MenuItemLists items={cartItems} showRemoveButton={true} />
             </div>
         </div>
